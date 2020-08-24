@@ -1,0 +1,41 @@
+{
+  "name": "laravel-frontend",
+  "description": "Projeto desenvolvido para propósito de teste",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "bootstrap": "^4.5.0",
+    "bootstrap-vue": "^2.15.0",
+    "chart.js": "^2.9.3",
+    "easymde": "^2.11.0",
+    "element-ui": "^2.13.2",
+    "node-sass": "^4.14.1",
+    "nouislider": "^14.6.0",
+    "nuxt": "^2.14.0",
+    "sass-loader": "^9.0.2",
+    "vee-validate": "^3.3.9",
+    "vue-bootstrap-typeahead": "^0.2.6",
+    "vue-chartjs": "^3.5.0",
+    "vue-clipboard2": "^0.3.1",
+    "vue-flatpickr-component": "^8.1.5",
+    "vue-the-mask": "^0.11.1",
+    "vue2-transitions": "^0.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-nuxt": "^1.0.0"
+  }
+}

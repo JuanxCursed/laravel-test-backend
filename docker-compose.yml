@@ -1,33 +1,36 @@
-# v2 syntax
-version: '2'
-
-# Named volumes
-volumes:
-  test-mysql-data:
-    driver: local
+version: '3.6'
 
 services:
-  # MySQL (5.7)
-  mysql:
-    image: mysql:5.7
-    container_name: test-mysql
-    volumes:
-      - test-mysql-data:/var/lib/mysql
-    ports:
-      - "3306:3306"
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.1-debian-10'
     environment:
-      - MYSQL_ROOT_PASSWORD=test
-      - MYSQL_DATABASE=test
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=test
-
-  # PHP (with Caddy)
-  app:
-    image: ambientum/php:7.2-nginx
-    container_name: test-app
-    volumes:
-      - .:/var/www/app
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=test_user
+      - MARIADB_DATABASE=test_user
+      - MARIADB_PASSWORD=test_user
+  backend:
+    tty: true
+    image: docker.io/bitnami/laravel:7-debian-10
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=test_user
+      - DB_DATABASE=test_user
+      - DB_PASSWORD=test_user
+    depends_on:
+      - mariadb
     ports:
-      - "80:8080"
-    links:
-      - mysql
+      - 8000:3000
+    volumes:
+      - ./backend/:/app
+  frontend:
+    image: node:12
+    command: bash -c "yarn install && yarn dev"
+    volumes:
+      - ./frontend/:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - '3000:3000'
+    depends_on:
+        - backend
+    environment:
+      HOST: 0.0.0.0

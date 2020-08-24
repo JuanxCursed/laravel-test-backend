@@ -1,3 +1,55 @@
+### About development environment
+
+To run this project locally you gonna need fulfill some requirements:
+
+- Nodejs 11+
+- PHP
+- MySQL
+
+
+```
+#frontend
+./run-frontend-without-docker.sh
+
+#backend
+./run-backend-without-docker.sh
+```
+
+Or just run 
+
+```
+docker-compose up <-d>
+```
+To start local environment for both laravel and vue microservices using docker
+
+## You can use the seeders to populate your database
+
+## Sobre o teste
+Pontos cumpridos
+- API (Backend com Laravel 5.8)
+  - CRUD de Imóveis
+  - CRUD de Contratos
+  - Ambos usando _SoftDelete_
+  - Validações localizadas  
+- Frontend (Vue/Nuxt)
+  - 100% SPA
+  - PWA
+  - UI/UX avançada
+  - Acessibilidade
+- Pontos comuns
+  - Microserviços
+  - Pronto para rodar com ou sem docker
+  - Ambos usando recursos seguros e atualizados (dentro dos limites da versão 5.8 do Laravael)
+
+
+Pontos não realizados
+- API
+  - Job: Cheguei a fazer para deletar um imovél e o contrato dependente, mas ficou muito ruim o comportamento então deletei e acabei não encontrado um lugar "decente" para encaixar já que não faz sentido dentro do escopo de teste.
+  - Teste de integração
+  - Teste Unitário
+
+
+
 ### Sobre a Accordous
 ##### Não perca mais tempo com seus contratos.
 Somos uma empresa de tecnologia voltada a simplificação de processos burocráticos! Desde a concepção até a cobrança de contratos, seja ele de imóveis, acordo, prestação de serviços, entre outros.
